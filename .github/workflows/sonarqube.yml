@@ -45,7 +45,7 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"Hexalith_Hexalith.Oidc" /o:"hexalith" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-        dotnet build './src/Modules/Hexalith.Oidc.Shared/Hexalith.Oidc.Shared.csproj' --configuration Release -p:Version=${{ env.VERSION }}
-        dotnet build './src/Modules/Hexalith.Oidc.Client/Hexalith.Oidc.Client.csproj' --configuration Release -p:Version=${{ env.VERSION }}
-        dotnet build './src/Modules/Hexalith.Oidc.Server/Hexalith.Oidc.Server.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+          dotnet build './src/Modules/Hexalith.Oidc.Shared/Hexalith.Oidc.Shared.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+          dotnet build './src/Modules/Hexalith.Oidc.Client/Hexalith.Oidc.Client.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+          dotnet build './src/Modules/Hexalith.Oidc.Server/Hexalith.Oidc.Server.csproj' --configuration Release -p:Version=${{ env.VERSION }}
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"

@@ -1,37 +1,37 @@
-﻿namespace Hexalith.Oidc.Client;
+﻿namespace Hexalith.Oidc.Shared;
 
 using System.Collections.Generic;
 using System.Reflection;
 
 using Hexalith.Application.Modules.Modules;
+using Hexalith.Extensions.Configuration;
+using Hexalith.Oidc.Shared.Configurations;
 
-using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Configuration;
-
 using Microsoft.Extensions.DependencyInjection;
 
 /// <summary>
-/// Microsoft Entra ID client module.
+/// Microsoft Entra ID shared module.
 /// </summary>
-public class OidcClientModule : IClientApplicationModule
+public class HexalithOidcSharedModule : ISharedApplicationModule
 {
     /// <inheritdoc/>
     public IEnumerable<string> Dependencies => [];
 
     /// <inheritdoc/>
-    public string Description => "Microsoft Entra ID client module";
+    public string Description => "Hexalith Open ID connect shared module";
 
     /// <inheritdoc/>
-    public string Id => "Hexalith.Oidc.Client";
+    public string Id => "Hexalith.Oidc.Shared";
 
     /// <inheritdoc/>
-    public string Name => "Microsoft Entra ID client";
+    public string Name => "Hexalith OIDC shared";
 
     /// <inheritdoc/>
     public int OrderWeight => 0;
 
     /// <inheritdoc/>
-    public string Path => "hexalith/microsoftentraid";
+    public string Path => "hexalith/oidc";
 
     /// <inheritdoc/>
     public IEnumerable<Assembly> PresentationAssemblies => [GetType().Assembly];
@@ -45,7 +45,12 @@ public class OidcClientModule : IClientApplicationModule
     /// <param name="services">The service collection.</param>
     /// <param name="configuration">The configuration.</param>
     public static void AddServices(IServiceCollection services, IConfiguration configuration)
-        => _ = services.AddScoped<AuthenticationStateProvider, ClientPersistentAuthenticationStateProvider>();
+    {
+        _ = services
+            .AddAuthorizationCore()
+            .AddCascadingAuthenticationState()
+            .ConfigureSettings<OidcSettings>(configuration);
+    }
 
     /// <inheritdoc/>
     public void UseModule(object builder)

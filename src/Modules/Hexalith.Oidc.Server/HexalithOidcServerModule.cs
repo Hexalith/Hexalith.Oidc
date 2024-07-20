@@ -26,7 +26,7 @@ using Microsoft.IdentityModel.Validators;
 /// <summary>
 /// Microsoft Entra ID server module.
 /// </summary>
-public sealed class OidcServerModule : IServerApplicationModule
+public sealed class HexalithOidcServerModule : IServerApplicationModule
 {
     /// <inheritdoc/>
     public IEnumerable<string> Dependencies => [];
@@ -50,7 +50,7 @@ public sealed class OidcServerModule : IServerApplicationModule
     public string Version => "1.0";
 
     /// <inheritdoc/>
-    string IApplicationModule.Path => OidcServerModule.Path;
+    string IApplicationModule.Path => HexalithOidcServerModule.Path;
 
     private static string CookieScheme => "Cookies";
 
