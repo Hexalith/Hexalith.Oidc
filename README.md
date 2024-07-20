@@ -4,7 +4,7 @@ Open Id Connect authentication and authorization
 ## Build status
 
 [![Build status](https://github.com/Hexalith/Hexalith.Oidc/actions/workflows/hexalith_build.yml/badge.svg)](https://github.com/Hexalith/Hexalith.Oidc/actions)
-[![NuGet](https://img.shields.io/nuget/v/Hexalith.Oidc.svg)](https://www.nuget.org/packages/Hexalith.Oidc)
+[![NuGet](https://img.shields.io/nuget/v/Hexalith.Oidc.Server.svg)](https://www.nuget.org/packages/Hexalith.Oidc.Server)
 [![License: MIT](https://img.shields.io/github/license/hexalith/hexalith.oidc)](https://github.com/hexalith/hexalith.oidc/blob/main/LICENSE)
 [![Discord](https://img.shields.io/discord/1063152441819942922?label=Discord&logo=discord&logoColor=white&color=d82679)](https://discordapp.com/channels/1102166958918610994/1102166958918610997)
 <br/>
