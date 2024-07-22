@@ -1,7 +1,6 @@
 ﻿namespace Hexalith.Oidc.Server;
 
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.IdentityModel.Tokens.Jwt;
 using System.Reflection;
 
@@ -20,8 +19,8 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Identity.Web.Resource;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
-using Microsoft.IdentityModel.Validators;
 
 /// <summary>
 /// Microsoft Entra ID server module.
@@ -147,7 +146,7 @@ public sealed class HexalithOidcServerModule : IServerApplicationModule
                     // returned by the "common" endpoint's /.well-known/openid-configuration
                     // For more information, see
                     // https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/issues/1731
-                    AadIssuerValidator microsoftIssuerValidator = AadIssuerValidator.GetAadIssuerValidator(oidcOptions.Authority);
+                    AadIssuerValidator microsoftIssuerValidator = AadIssuerValidator.GetIssuerValidator(oidcOptions.Authority);
                     oidcOptions.TokenValidationParameters.IssuerValidator = microsoftIssuerValidator.Validate;
                 }
             })
@@ -181,7 +180,6 @@ public sealed class HexalithOidcServerModule : IServerApplicationModule
                 [CookieScheme, OidcScheme]));
     }
 
-    [SuppressMessage("Major Code Smell", "S3994:URI Parameters should not be strings", Justification = "Does not apply here.")]
     private static AuthenticationProperties GetAuthProperties(string? returnUrl)
     {
         // TODO: Use HttpContext.Request.PathBase instead.

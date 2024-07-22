@@ -51,16 +51,16 @@
 	<PropertyGroup>
 		<CoverletCollectorVersion>6.0.2</CoverletCollectorVersion>
 		<FluentAssertionsVersion>6.12.0</FluentAssertionsVersion>
-		<GitHubActionsTestLoggerVersion>2.3.3</GitHubActionsTestLoggerVersion>
+		<GitHubActionsTestLoggerVersion>2.4.1</GitHubActionsTestLoggerVersion>
 		<GoogleApiVersion>5.4.3</GoogleApiVersion>
-		<MicrosoftNETTestSdkVersion>17.9.0</MicrosoftNETTestSdkVersion>
+		<MicrosoftNETTestSdkVersion>17.10.0</MicrosoftNETTestSdkVersion>
 		<MicrosoftVisualStudioThreadingAnalyzersVersion>17.10.48</MicrosoftVisualStudioThreadingAnalyzersVersion>
 		<MinverVersion>5.0.0</MinverVersion>
 		<MoqVersion>4.20.70</MoqVersion>
 		<MoqContribHttpClientVersion>1.4.0</MoqContribHttpClientVersion>
 		<StyleCopAnalyzersVersion>1.2.0-beta.556</StyleCopAnalyzersVersion>
-		<XUnitRunnerVisualStudioVersion>2.8.0</XUnitRunnerVisualStudioVersion>
-		<XUnitVersion>2.8.0</XUnitVersion>
+		<XUnitRunnerVisualStudioVersion>2.8.2</XUnitRunnerVisualStudioVersion>
+		<XUnitVersion>2.9.0</XUnitVersion>
 	</PropertyGroup>
 
 	<ItemGroup>

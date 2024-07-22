@@ -12,7 +12,7 @@ public class ClientApplication : HexalithClientApplication
 {
     /// <inheritdoc/>
     public override IEnumerable<Type> ClientModules
-        => [typeof(OidcClientModule)];
+        => [typeof(HexalithOidcClientModule)];
 
     /// <inheritdoc/>
     public override Type SharedApplicationType => typeof(SharedApplication);

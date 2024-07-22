@@ -15,7 +15,7 @@ public class ServerApplication : HexalithServerApplication
     public override Type ClientApplicationType => typeof(ClientApplication);
 
     /// <inheritdoc/>
-    public override IEnumerable<Type> ServerModules => [typeof(OidcServerModule)];
+    public override IEnumerable<Type> ServerModules => [typeof(HexalithOidcServerModule)];
 
     /// <inheritdoc/>
     public override Type SharedApplicationType => typeof(SharedApplication);

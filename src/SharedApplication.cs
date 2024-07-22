@@ -27,6 +27,6 @@ public class SharedApplication : HexalithSharedApplication
     /// <inheritdoc/>
     public override IEnumerable<Type> SharedModules =>
     [
-        typeof(OidcSharedModule), typeof(HexalithUIComponentsSharedModule)
+        typeof(HexalithOidcSharedModule), typeof(HexalithUIComponentsSharedModule)
     ];
 }

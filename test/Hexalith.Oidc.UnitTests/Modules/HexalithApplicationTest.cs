@@ -45,10 +45,10 @@ public class HexalithApplicationTest
             .HaveCount(2);
         _ = HexalithApplication.Client.ClientModules
             .Should()
-            .Contain(typeof(OidcClientModule));
+            .Contain(typeof(HexalithOidcClientModule));
         _ = HexalithApplication.Client.Modules
             .Should()
-            .Contain(typeof(OidcSharedModule));
+            .Contain(typeof(HexalithOidcSharedModule));
     }
 
     [Fact]
@@ -62,10 +62,10 @@ public class HexalithApplicationTest
             .HaveCount(2);
         _ = HexalithApplication.Server.ServerModules
             .Should()
-            .Contain(typeof(OidcServerModule));
+            .Contain(typeof(HexalithOidcServerModule));
         _ = HexalithApplication.Server.Modules
             .Should()
-            .Contain(typeof(OidcSharedModule));
+            .Contain(typeof(HexalithOidcSharedModule));
     }
 
     [Fact]
