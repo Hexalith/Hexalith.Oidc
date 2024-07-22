@@ -49,5 +49,5 @@ public record OidcSettings(
     /// The name of the configuration.
     /// </summary>
     /// <returns>Settings section name.</returns>
-    public static string ConfigurationName() => nameof(Oidc);
+    public static string ConfigurationName() => nameof(Hexalith) + ":" + nameof(Oidc);
 }

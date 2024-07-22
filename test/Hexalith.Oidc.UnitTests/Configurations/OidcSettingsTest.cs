@@ -14,11 +14,11 @@ public class OidcSettingsTest : SerializationTestBase
 {
     public static Dictionary<string, string> TestSettings => new()
         {
-            { "Oidc:OidcType", "MicrosoftEntraId" },
-            { "Oidc:Tenant", "fiveforty.fr" },
-            { "Oidc:Authority", "https://myauthority" },
-            { "Oidc:ClientId", "125642" },
-            { "Oidc:ClientSecret", "65125642" },
+            { "Hexalith:Oidc:OidcType", "MicrosoftEntraId" },
+            { "Hexalith:Oidc:Tenant", "fiveforty.fr" },
+            { "Hexalith:Oidc:Authority", "https://myauthority" },
+            { "Hexalith:Oidc:ClientId", "125642" },
+            { "Hexalith:Oidc:ClientSecret", "65125642" },
         };
 
     [Fact]
@@ -29,11 +29,11 @@ public class OidcSettingsTest : SerializationTestBase
             .Build();
         OidcSettings settings = configuration.GetSettings<OidcSettings>();
         _ = settings.Should().NotBeNull();
-        _ = settings.OidcType.Should().Be(OidcType.MicrosoftEntraId);
         _ = settings.Tenant.Should().Be("fiveforty.fr");
         _ = settings.Authority.Should().Be("https://myauthority");
         _ = settings.ClientId.Should().Be("125642");
         _ = settings.ClientSecret.Should().Be("65125642");
+        _ = settings.OidcType.Should().Be(OidcType.MicrosoftEntraId);
     }
 
     [Fact]
@@ -60,10 +60,12 @@ public class OidcSettingsTest : SerializationTestBase
         _ = settings.ClientSecret.Should().Be("789000");
     }
 
-    public override object ToSerializeObject() => new OidcSettings(
-        OidcType.MicrosoftEntraId,
-        "fiveforty.fr",
-        "https://hellooidc",
-        "123456",
-        "789000");
+    public override object ToSerializeObject() => new OidcSettings
+    {
+        OidcType = OidcType.MicrosoftEntraId,
+        Tenant = "fiveforty.fr",
+        Authority = "https://hellooidc",
+        ClientId = "123456",
+        ClientSecret = "789000",
+    };
 }
