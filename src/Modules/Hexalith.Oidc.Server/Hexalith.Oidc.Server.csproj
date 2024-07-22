@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 	<PropertyGroup>
 		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+		<UserSecretsId>ec81df23-6b1e-4de8-b8ad-539fbc979451</UserSecretsId>
 	</PropertyGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\Hexalith.Oidc.Client\Hexalith.Oidc.Client.csproj" />
@@ -8,6 +9,7 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="$(AspNetCorePackagesVersion)" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="$(AspNetCorePackagesVersion)" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
 		<PackageReference Include="Microsoft.Identity.Web" Version="2.19.0" />
 	</ItemGroup>
 </Project>
