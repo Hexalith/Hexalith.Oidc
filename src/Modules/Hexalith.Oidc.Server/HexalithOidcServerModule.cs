@@ -19,8 +19,8 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Identity.Web.Resource;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+using Microsoft.IdentityModel.Validators;
 
 /// <summary>
 /// Microsoft Entra ID server module.
@@ -146,7 +146,7 @@ public sealed class HexalithOidcServerModule : IServerApplicationModule
                     // returned by the "common" endpoint's /.well-known/openid-configuration
                     // For more information, see
                     // https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/issues/1731
-                    AadIssuerValidator microsoftIssuerValidator = AadIssuerValidator.GetIssuerValidator(oidcOptions.Authority);
+                    AadIssuerValidator microsoftIssuerValidator = AadIssuerValidator.GetAadIssuerValidator(oidcOptions.Authority);
                     oidcOptions.TokenValidationParameters.IssuerValidator = microsoftIssuerValidator.Validate;
                 }
             })
