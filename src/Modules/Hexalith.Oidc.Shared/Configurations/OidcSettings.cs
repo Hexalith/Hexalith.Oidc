@@ -26,6 +26,8 @@ using Hexalith.Extensions.Configuration;
 [DataContract]
 public record OidcSettings(
     [property: DataMember]
+    bool Enabled,
+    [property: DataMember]
     [property:JsonConverter(typeof(JsonStringEnumConverter))]
     OidcType OidcType,
     [property: DataMember]
@@ -41,7 +43,7 @@ public record OidcSettings(
     /// Initializes a new instance of the <see cref="OidcSettings"/> class.
     /// </summary>
     public OidcSettings()
-        : this(OidcType.Oidc, string.Empty, string.Empty, string.Empty, string.Empty)
+        : this(false, OidcType.Oidc, string.Empty, string.Empty, string.Empty, string.Empty)
     {
     }
 

@@ -5,6 +5,7 @@ using System.Reflection;
 
 using Hexalith.Application.Modules.Modules;
 using Hexalith.Extensions.Configuration;
+using Hexalith.Extensions.Helpers;
 using Hexalith.Oidc.Shared.Configurations;
 
 using Microsoft.Extensions.Configuration;
@@ -46,6 +47,12 @@ public class HexalithOidcSharedModule : ISharedApplicationModule
     /// <param name="configuration">The configuration.</param>
     public static void AddServices(IServiceCollection services, IConfiguration configuration)
     {
+        OidcSettings settings = configuration.GetSettings<OidcSettings>()
+           ?? throw new InvalidOperationException($"Could not load settings section '{OidcSettings.ConfigurationName()}'");
+        if (!settings.Enabled)
+        {
+            return;
+        }
         _ = services
             .AddAuthorizationCore()
             .AddCascadingAuthenticationState()

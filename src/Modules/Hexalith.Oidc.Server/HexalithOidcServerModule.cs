@@ -64,10 +64,15 @@ public sealed class HexalithOidcServerModule : IServerApplicationModule
     /// <param name="configuration">The configuration.</param>
     public static void AddServices(IServiceCollection services, IConfiguration configuration)
     {
-        _ = services.AddScoped<AuthenticationStateProvider, ServerPersistingAuthenticationStateProvider>();
-
         OidcSettings settings = configuration.GetSettings<OidcSettings>()
             ?? throw new InvalidOperationException($"Could not load settings section '{OidcSettings.ConfigurationName()}'");
+        if (!settings.Enabled)
+        {
+            return;
+        }
+
+        _ = services.AddScoped<AuthenticationStateProvider, ServerPersistingAuthenticationStateProvider>();
+
         SettingsException<OidcSettings>.ThrowIfNullOrWhiteSpace(settings.ClientId);
         SettingsException<OidcSettings>.ThrowIfNullOrWhiteSpace(settings.ClientSecret);
         if (settings.OidcType != OidcType.MicrosoftEntraId)
